@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — KxP Flag Football</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand"><img src="images/logo.PNG" alt="KxP"> KFL</a>
+      <button class="mobile-toggle" onclick="toggleMobileNav()">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="teams.html">Teams</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="leaders.html">Leaders</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" style="padding-top: 2.5rem;">
+    <h2 class="section-title">Photo Gallery</h2>
+    <p style="color:var(--text-muted); margin-bottom:1.5rem;">Click any photo to view full size. Use arrows or keyboard to navigate.</p>
+
+    <div class="gallery-page-grid" id="gallery-page">
+      <div class="gallery-page-item" onclick="openLightbox(0)">
+        <img src="images/team1.PNG" alt="Team celebration in the rain">
+        <div class="gallery-page-caption">Team Celebration</div>
+      </div>
+      <div class="gallery-page-item" onclick="openLightbox(1)">
+        <img src="images/DL.PNG" alt="Championship team photo">
+        <div class="gallery-page-caption">Championship Squad</div>
+      </div>
+      <div class="gallery-page-item" onclick="openLightbox(2)">
+        <img src="images/Player1.PNG" alt="Player #10 spotlight">
+        <div class="gallery-page-caption">Player Spotlight</div>
+      </div>
+      <div class="gallery-page-item" onclick="openLightbox(3)">
+        <img src="images/Player2.PNG" alt="Player #3 spotlight">
+        <div class="gallery-page-caption">Player Spotlight</div>
+      </div>
+      <div class="gallery-page-item" onclick="openLightbox(4)">
+        <img src="images/MVPfall.PNG" alt="Fall MVP - Matthew Gillis">
+        <div class="gallery-page-caption">Fall MVP — Matthew Gillis</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-prev" onclick="prevPhoto()">&#10094;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+    <button class="lightbox-next" onclick="nextPhoto()">&#10095;</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 KxP &mdash; Flag Football for a Cause</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    const photos = [
+      { src: 'images/team1.PNG', caption: 'Team Celebration' },
+      { src: 'images/DL.PNG', caption: 'Championship Squad' },
+      { src: 'images/Player1.PNG', caption: 'Player Spotlight' },
+      { src: 'images/Player2.PNG', caption: 'Player Spotlight' },
+      { src: 'images/MVPfall.PNG', caption: 'Fall MVP — Matthew Gillis' }
+    ];
+
+    let currentPhoto = 0;
+
+    function openLightbox(index) {
+      currentPhoto = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function nextPhoto() {
+      currentPhoto = (currentPhoto + 1) % photos.length;
+      updateLightbox();
+    }
+
+    function prevPhoto() {
+      currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const photo = photos[currentPhoto];
+      document.getElementById('lightbox-img').src = photo.src;
+      document.getElementById('lightbox-img').alt = photo.caption;
+      document.getElementById('lightbox-caption').textContent = photo.caption;
+      document.getElementById('lightbox-counter').textContent = (currentPhoto + 1) + ' / ' + photos.length;
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextPhoto();
+      if (e.key === 'ArrowLeft') prevPhoto();
+    });
+
+    // Close lightbox on backdrop click
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    });
+
+    // Open from URL param (linked from homepage)
+    const params = new URLSearchParams(window.location.search);
+    const photoParam = params.get('photo');
+    if (photoParam !== null) {
+      const idx = parseInt(photoParam, 10);
+      if (!isNaN(idx) && idx >= 0 && idx < photos.length) {
+        openLightbox(idx);
+      }
+    }
+  </script>
+</body>
+</html>
