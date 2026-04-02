@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accolades — KxP Flag Football</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand"><img src="images/logo.PNG" alt="KxP"> KFL</a>
+      <button class="mobile-toggle" onclick="toggleMobileNav()">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="teams.html">Teams</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="leaders.html">Leaders</a></li>
+        <li><a href="accolades.html" class="active">Accolades</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" style="padding-top: 2.5rem;">
+    <h2 class="section-title">Championship History & Awards</h2>
+
+    <!-- 2025 Turkey Bowl -->
+    <div class="accolade-season">
+      <h3 class="accolade-season-title">2025 Turkey Bowl</h3>
+      <div class="accolade-grid">
+        <div class="accolade-card accolade-champ">
+          <div class="accolade-badge">Champions</div>
+          <img src="images/TurkeyBowlChamps2025.PNG" alt="2025 Turkey Bowl Champions — MONANGUYS">
+          <div class="accolade-info">
+            <h4>MONANGUYS</h4>
+            <p>Turkey Bowl Champions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 Fall Season -->
+    <div class="accolade-season">
+      <h3 class="accolade-season-title">2025 Fall Season</h3>
+      <div class="accolade-grid">
+        <div class="accolade-card accolade-champ">
+          <div class="accolade-badge">Champions</div>
+          <img src="images/team1.PNG" alt="2025 Fall Champions — KxP All Stars">
+          <div class="accolade-info">
+            <h4>KxP All Stars</h4>
+            <p>Fall Season Champions</p>
+          </div>
+        </div>
+        <div class="accolade-card">
+          <div class="accolade-badge accolade-badge-mvp">MVP</div>
+          <img src="images/MVPfall.PNG" alt="Fall MVP — Matthew Gillis">
+          <div class="accolade-info">
+            <h4>Matthew Gillis</h4>
+            <p>Most Feared</p>
+          </div>
+        </div>
+        <div class="accolade-card">
+          <div class="accolade-badge accolade-badge-dpoy">DPOY</div>
+          <img src="images/FallDPOY.PNG" alt="Fall DPOY — Shafiq Said">
+          <div class="accolade-info">
+            <h4>Shafiq Said</h4>
+            <p>KXP All Stars</p>
+          </div>
+        </div>
+        <div class="accolade-card">
+          <div class="accolade-badge accolade-badge-opoy">OPOY</div>
+          <img src="images/FallOPOY.PNG" alt="Fall OPOY — Imran Sabir">
+          <div class="accolade-info">
+            <h4>Imran Sabir</h4>
+            <p>LOB</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 Summer Season -->
+    <div class="accolade-season">
+      <h3 class="accolade-season-title">2025 Summer Season</h3>
+      <div class="accolade-grid">
+        <div class="accolade-card accolade-champ">
+          <div class="accolade-badge">Champions</div>
+          <img src="images/DL.PNG" alt="2025 Summer Champions — Desert Lions">
+          <div class="accolade-info">
+            <h4>Desert Lions</h4>
+            <p>Summer Season Champions</p>
+          </div>
+        </div>
+        <div class="accolade-card">
+          <div class="accolade-badge accolade-badge-mvp">MVP</div>
+          <img src="images/Summer2025MvpHoussamAbdullah.PNG" alt="Summer 2025 MVP — Houssam Abdullah">
+          <div class="accolade-info">
+            <h4>Houssam Abdullah</h4>
+            <p>LOB</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 Summer Season -->
+    <div class="accolade-season">
+      <h3 class="accolade-season-title">2024 Summer Season</h3>
+      <div class="accolade-grid">
+        <div class="accolade-card accolade-champ">
+          <div class="accolade-badge">Champions</div>
+          <img src="images/Summer2024Champs.PNG" alt="2024 Summer Champions — CTESPN">
+          <div class="accolade-info">
+            <h4>CTESPN</h4>
+            <p>Summer Season Champions</p>
+          </div>
+        </div>
+        <div class="accolade-card">
+          <div class="accolade-badge accolade-badge-mvp">MVP</div>
+          <img src="images/Summer2024MvpImranSabir.PNG" alt="Summer 2024 MVP — Imran Sabir">
+          <div class="accolade-info">
+            <h4>Imran Sabir</h4>
+            <p>CTESPN</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-prev" onclick="prevPhoto()">&#10094;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+    <button class="lightbox-next" onclick="nextPhoto()">&#10095;</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 KxP &mdash; Flag Football for a Cause</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Build photos array from accolade cards
+    const cards = document.querySelectorAll('.accolade-card');
+    const photos = [];
+    cards.forEach((card, i) => {
+      const img = card.querySelector('img');
+      const h4 = card.querySelector('.accolade-info h4');
+      const badge = card.querySelector('.accolade-badge');
+      const caption = (badge ? badge.textContent + ' — ' : '') + (h4 ? h4.textContent : '');
+      photos.push({ src: img.src, caption: caption });
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => openLightbox(i));
+    });
+
+    let currentPhoto = 0;
+
+    function openLightbox(index) {
+      currentPhoto = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function nextPhoto() {
+      currentPhoto = (currentPhoto + 1) % photos.length;
+      updateLightbox();
+    }
+
+    function prevPhoto() {
+      currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const photo = photos[currentPhoto];
+      document.getElementById('lightbox-img').src = photo.src;
+      document.getElementById('lightbox-img').alt = photo.caption;
+      document.getElementById('lightbox-caption').textContent = photo.caption;
+      document.getElementById('lightbox-counter').textContent = (currentPhoto + 1) + ' / ' + photos.length;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextPhoto();
+      if (e.key === 'ArrowLeft') prevPhoto();
+    });
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    });
+  </script>
+</body>
+</html>

@@ -884,6 +884,95 @@ img { max-width: 100%; display: block; }
   flex-shrink: 0;
 }
 
+/* ── Accolades ── */
+.accolade-season {
+  margin-bottom: 3rem;
+}
+
+.accolade-season-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.accolade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.accolade-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.accolade-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.accolade-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.accolade-champ {
+  border-color: rgba(201, 162, 39, 0.4);
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.08);
+}
+
+.accolade-badge {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.accolade-badge-mvp {
+  background: linear-gradient(135deg, #c9a227, #f0d060);
+}
+
+.accolade-badge-dpoy {
+  background: linear-gradient(135deg, #3fb950, #2ea043);
+}
+
+.accolade-badge-opoy {
+  background: linear-gradient(135deg, #58a6ff, #388bfd);
+}
+
+.accolade-info {
+  padding: 1rem 1.2rem;
+}
+
+.accolade-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.accolade-info p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 /* ── Footer ── */
 .footer {
   text-align: center;
