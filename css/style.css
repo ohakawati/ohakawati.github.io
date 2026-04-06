@@ -973,6 +973,309 @@ img { max-width: 100%; display: block; }
   font-size: 0.85rem;
 }
 
+/* ── No Stats Message ── */
+.no-stats-message {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ── Game Card Played State ── */
+.game-card.game-played {
+  position: relative;
+}
+
+.game-card.game-played:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.game-expand-hint {
+  display: none;
+  position: absolute;
+  bottom: 6px;
+  right: 12px;
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+}
+
+.game-card.game-played:hover .game-expand-hint {
+  display: block;
+}
+
+/* ── Game Detail Overlay / Modal ── */
+.game-detail-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  overflow-y: auto;
+  padding: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.game-detail-overlay.active {
+  display: flex;
+}
+
+.game-detail-modal {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  max-width: 900px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.game-detail-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+  z-index: 1;
+}
+
+.game-detail-close:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ── Box Score Header ── */
+.boxscore-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.boxscore-matchup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.boxscore-team {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.boxscore-team:first-child {
+  justify-content: flex-end;
+}
+
+.boxscore-team:last-child {
+  justify-content: flex-start;
+}
+
+.boxscore-team.winner .boxscore-team-name {
+  color: var(--accent);
+}
+
+.boxscore-team-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.boxscore-team-record {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.boxscore-final {
+  flex-shrink: 0;
+  min-width: 120px;
+}
+
+.boxscore-scores {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.boxscore-pts {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.boxscore-pts.winning {
+  color: var(--text);
+}
+
+.boxscore-divider {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.boxscore-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.boxscore-meta {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ── Box Score Summary (head-to-head team stats) ── */
+.boxscore-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  padding: 0.65rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row.summary-header {
+  background: rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.summary-label {
+  flex: 1;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.summary-val {
+  width: 80px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.summary-val.highlight {
+  color: var(--accent);
+}
+
+/* ── Box Score Roster Tables ── */
+.boxscore-roster {
+  margin-bottom: 1.5rem;
+}
+
+.boxscore-roster-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.boxscore-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  padding: 0.75rem 0 0.4rem;
+}
+
+.boxscore-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 0.5rem;
+}
+
+.boxscore-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.boxscore-table th {
+  text-align: left;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.boxscore-table td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+}
+
+.boxscore-table tr:last-child td {
+  border-bottom: none;
+}
+
+.boxscore-table tr:hover {
+  background: var(--surface-hover);
+}
+
+.boxscore-table tr.no-stats {
+  opacity: 0.45;
+}
+
+.boxscore-table .player-number {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.boxscore-table .player-name {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.boxscore-table .stat-highlight {
+  color: var(--green);
+  font-weight: 700;
+}
+
 /* ── Footer ── */
 .footer {
   text-align: center;
@@ -1013,4 +1316,16 @@ img { max-width: 100%; display: block; }
   .roster-table th, .roster-table td { padding: 0.5rem 0.4rem; }
 
   .standings-table th, .standings-table td { padding: 0.6rem 0.8rem; font-size: 0.85rem; }
+
+  /* Box score modal responsive */
+  .game-detail-overlay { padding: 0.5rem; }
+  .game-detail-modal { padding: 1.2rem; margin: 0.5rem auto; }
+  .boxscore-matchup { flex-direction: column; gap: 0.75rem; }
+  .boxscore-team { justify-content: center !important; }
+  .boxscore-team-info { text-align: center !important; }
+  .boxscore-final { order: -1; }
+  .summary-val { width: 60px; font-size: 0.85rem; }
+  .summary-label { font-size: 0.75rem; }
+
+  .game-expand-hint { display: none !important; }
 }
